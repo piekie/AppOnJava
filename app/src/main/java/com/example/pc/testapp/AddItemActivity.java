@@ -1,15 +1,14 @@
 package com.example.pc.testapp;
 
-import android.content.ContentValues;
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class AddItemActivity extends AppCompatActivity {
+public class AddItemActivity extends Activity {
 
     private Button add_country_button;
     private EditText editText_id;
@@ -30,20 +29,15 @@ public class AddItemActivity extends AppCompatActivity {
 
     }
 
-
-
     public void AddCountry(View v)
     {
         Intent intent = new Intent(this, MainActivity.class);
 
-
-
+        country_id = Integer.parseInt(editText_id.getText().toString());
+        country_name = editText_country.getText().toString();
+        capital = editText_capital.getText().toString();
 
         if (country_id >0 && country_name.length() > 0 && capital.length() > 0) {
-
-            country_id = Integer.parseInt(editText_id.getText().toString());
-            country_name = editText_country.getText().toString();
-            capital = editText_capital.getText().toString();
 
             intent.putExtra("id", country_id);
             intent.putExtra("name", country_name);

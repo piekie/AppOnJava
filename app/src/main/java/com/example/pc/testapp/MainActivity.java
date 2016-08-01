@@ -1,19 +1,22 @@
 package com.example.pc.testapp;
 
 import android.app.Activity;
-import android.app.DownloadManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
-import android.widget.*;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -21,11 +24,11 @@ import java.util.List;
  */
 public class MainActivity extends Activity {
 
+    int i;
     private ListView listv;
     private  Realm realm;
     private List<String> data = new ArrayList<String>();
     private Button button_adding;
-    int i;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,7 +74,10 @@ public class MainActivity extends Activity {
             additional_country.setCapital(data.getStringExtra("capital"));
 
             realm.beginTransaction();
-            Country copyofCountry1 = realm.copyToRealm(additional_country);
+
+//            Must be copyToRealmOrUpdate because of crash when conflicting ids
+            realm.copyToRealmOrUpdate(additional_country);
+
             realm.commitTransaction();
 
             List<String> items = FillList();
