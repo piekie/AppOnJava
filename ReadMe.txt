@@ -1,0 +1,1 @@
+An application with a listview that displays elements of database and and give you a possibility to add new records
