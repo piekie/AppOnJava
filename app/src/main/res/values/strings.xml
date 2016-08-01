@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TestApp</string>
+    <string name="button_add_country">Добавить страну</string>
+    <string name="add_info_button">Добавить</string>
+</resources>

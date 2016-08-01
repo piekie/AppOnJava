@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:weightSum="1">
+
+    <ListView
+            android:layout_width="match_parent"
+            android:layout_height="404dp"
+            android:id="@+id/listView" android:layout_weight="0.53"/>
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_add_country"
+            android:id="@+id/button" android:layout_gravity="bottom" android:layout_weight="0.39"
+            android:onClick="GoAddCountry"/>
+</LinearLayout>
